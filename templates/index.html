@@ -11,7 +11,7 @@
         <input type="text" id="sender_address" name="sender_address" required minlength="5"><br><br>
         
         <label for="sender_postal">PSČ odesílatele:</label>
-        <input type="text" id="sender_postal" name="sender_postal" required pattern="\d{5}" title="PSČ musí obsahovat přesně 5 číslic"><br><br>
+        <input type="text" id="sender_postal" name="sender_postal_code" required pattern="\d{5}" title="PSČ musí obsahovat přesně 5 číslic"><br><br>
     </fieldset>
     
     <fieldset>
@@ -37,6 +37,12 @@
             <option value="balík">Balík</option>
             <option value="dopis">Dopis</option>
             <option value="cenný balík">Cenný balík</option>
+            <option value="šipka">m829a3 120 milimeter depleted uranium tipped armor piercing fin stabilised desicarding sabot round</option>
+            <option value="">Schwerer Panzerspähwagen funf centimeter Sonderkraftfahrzeug 234/2</option>
+            <option value="balík">Atomic Annie</option>
+            <option value="dopis">B-29 "Enola gay"</option>
+            <option value="dopis">mid life crisis</option>
+            <option value="dopis">Chevrolet Corvette c6 zr1 "The blue devil"</option>
         </select><br><br>
         
         <label for="insurance">Pojištění:</label>
@@ -45,7 +51,10 @@
         <label for="note">Poznámka:</label>
         <textarea id="note" name="note" maxlength="200"></textarea><br><br>
     </fieldset>
-    
+
+
     <input type="submit" value="Odeslat">
 </form>
+
+
 {% endblock %}
