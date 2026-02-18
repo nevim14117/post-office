@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 import json
 import os
+from datetime import datetime
 
 app = Flask(__name__)
 
@@ -34,6 +35,21 @@ def submit():
     if type not in ["balík", "dopis", "cenný balík"]:
         return "Neplatný typ doručení.", 400
 
+    #uložení dat do JSON souboru
+    data = {
+        "sender_name": sender_name,
+        "sender_address": sender_address,
+        "sender_postal_code": sender_postal_code,
+        "recipient_name": recipient_name,
+    }
+    timestamp = datetime.now().strftime('%Y%m%d%H%M%S')
+    post_name = f"post_{timestamp}.json"
+    post_file = os.path.join("posts", post_name)
+    with open(post_file, 'w') as f:  
+        json.dump(data, f, indent=4)
+
+    post_name = f"post_{datetime.now().strftime('%Y%m%d%H%M%S')}.json"
+    post_name = f"post_{timestamp}.json"
 
 
 if __name__ == '__main__':
